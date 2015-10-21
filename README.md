@@ -12,14 +12,13 @@ Deploy the package output from visual studio including the diagnostics extension
 - Make sure the Extensions directory is present along with the cspkg and cscfg files if you want the diagnostics config to be picked up.
 
 e.g.
-	```
+
 	$Svc = "<FullPathtoExtensionsFolder>"
 	$StorageAccountName = "<StorageAccountName>"
 	$cspkg = "<FullPathToServicePackage>.cspkg"
 	$cscfg = "<FullPathToServiceConfig>.Cloud.cscfg"
 	
 	.\Deploy-CloudService.ps1 -ServiceName $Svc -StorageAccount $StorageAccountName -ServiceLocation "Central US" -servicePackageFile $cspkg -serviceConfigFile $cscfg -Slot "Production" -AllowUpgrade "true" -AppendDateTimeToLabel "true"
-	```
 
 ## Update-CloudServiceDiagnostics
 Update an existing CloudService with new diagnostics config
@@ -29,10 +28,9 @@ Update an existing CloudService with new diagnostics config
 
 e.g.
 
-	```
+
 	$Svc = "<FullPathtoExtensionsFolder>"
 	$StorageAccountName = "<StorageAccountName>"
 	$extpath = "<FullPathtoExtensionsFolder>"
 	
 	.\Update-CloudServiceDiagnostics.ps1 -ServiceName $Svc -StorageAccount $StorageAccountName -Slot "Production" -extensionsPath $extpath -Verbose
-	```
