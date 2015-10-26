@@ -140,7 +140,7 @@ function Get-DiagnosticsExtensions($storageAccount, $extensionsPath)
 
                     Write-Host "New-AzureServiceDiagnosticsExtensionConfig -Role $role -StorageContext <context> -DiagnosticsConfigurationPath $fullExtPath"
                     $wadconfig = New-AzureServiceDiagnosticsExtensionConfig -Role $role -StorageContext $storageContext -DiagnosticsConfigurationPath $fullExtPath
-                    $newwadconfig = New-AzureServiceExtensionConfig -Role $role -ProviderNamespace "WAD2AI.Diagnostics.Test" -ExtensionName "PaaSDiagnostics" -PublicConfiguration $wadconfig.PublicConfiguration -PrivateConfiguration $wadconfig.PrivateConfiguration -Version "0.10"
+                    $newwadconfig = New-AzureServiceExtensionConfig -Role $role -ProviderNamespace "WAD2AI.Diagnostics.Test" -ExtensionName "PaaSDiagnostics" -PublicConfiguration $wadconfig.PublicConfiguration -PrivateConfiguration $wadconfig.PrivateConfiguration -Version "0.*"
 
                     #Add each extension configuration to the array for use by caller
                     $diagnosticsConfigurations += $newwadconfig
