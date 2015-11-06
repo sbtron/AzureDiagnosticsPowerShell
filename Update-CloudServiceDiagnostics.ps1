@@ -127,7 +127,10 @@ function Apply-DiagnosticsExtensions($storageAccount, $extensionsPath)
 
                     Write-Host "Set-AzureServiceExtension -ServiceName $ServiceName -Role $role -Slot $Slot"
                     #Update Diagnostics on each Role
-                    Set-AzureServiceExtension -ServiceName $ServiceName -Role $role -Slot $Slot -ExtensionName PaaSDiagnostics -ProviderNamespace WAD2AI.Diagnostics.Test -Version "0.*" -PublicConfiguration $wadconfig.PublicConfiguration -PrivateConfiguration $wadconfig.PrivateConfiguration 
+                    Set-AzureServiceExtension -ServiceName $ServiceName -Role $role -Slot $Slot -ExtensionName PaaSDiagnostics -ProviderNamespace Microsoft.Azure.Diagnostics -Version "1.*" -PublicConfiguration $wadconfig.PublicConfiguration -PrivateConfiguration $wadconfig.PrivateConfiguration 
+                    
+                    #Uncomment to test out the WAD2AI test extension
+                    #Set-AzureServiceExtension -ServiceName $ServiceName -Role $role -Slot $Slot -ExtensionName PaaSDiagnostics -ProviderNamespace WAD2AI.Diagnostics.Test -Version "0.*" -PublicConfiguration $wadconfig.PublicConfiguration -PrivateConfiguration $wadconfig.PrivateConfiguration 
 
                 }
             }
